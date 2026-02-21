@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: authapi
+    env: node
+    plan: free
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: JWT_SECRET
+        fromGroup: AuthAPI
+      - key: HMAC_SECRET
+        fromGroup: AuthAPI
+      - key: ADMIN_PASSWORD
+        fromGroup: AuthAPI
+
+envGroups:
+  - name: AuthAPI
+    envVars:
+      - key: JWT_SECRET
+        value: "please-change-jwt-secret-2025"
+      - key: HMAC_SECRET
+        value: "please-change-hmac-secret-2025"
+      - key: ADMIN_PASSWORD
+        value: "1"
