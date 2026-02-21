@@ -3,7 +3,8 @@ services:
     name: authapi
     env: node
     plan: free
-    startCommand: npm start
+    buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: PORT
         value: "10000"
@@ -23,3 +24,4 @@ envGroups:
         value: "please-change-hmac-secret-2025"
       - key: ADMIN_PASSWORD
         value: "1"
+
